@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -33,5 +35,18 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    /** Called when the user touches the button */
+    public void videoRecordClick(View view) {
+        TextView t =(TextView) findViewById(R.id.textView);
+        t.setText("Good job!");
+    }
+
+    /** Called when the user touches the button */
+    public void rotationRecordClick(View view) {
+        TextView t =(TextView) findViewById(R.id.textView);
+        t.setText("You suck!");
     }
 }

@@ -22,7 +22,8 @@
         android:id="@+id/video_button"
         android:layout_marginTop="138dp"
         android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="videoRecordClick"/>
 
     <Button
         android:layout_width="match_parent"
@@ -32,5 +33,6 @@
         android:layout_marginTop="79dp"
         android:layout_below="@+id/video_button"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="rotationRecordClick"/>
 </RelativeLayout>
