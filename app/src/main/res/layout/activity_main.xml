@@ -35,4 +35,40 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:onClick="rotationRecordClick"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="GyroX :"
+        android:id="@+id/textX"
+        android:layout_below="@+id/rotation_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/rotation_button"
+        android:layout_alignEnd="@+id/rotation_button" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="GyroY :"
+        android:id="@+id/textY"
+        android:layout_below="@+id/textX"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/textZ"
+        android:layout_alignEnd="@+id/textZ" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="GyroZ :"
+        android:id="@+id/textZ"
+        android:layout_below="@+id/textY"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>
