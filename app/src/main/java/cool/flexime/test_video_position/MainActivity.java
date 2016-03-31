@@ -5,14 +5,21 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.hardware.SensorManager;
 
 public class MainActivity extends ActionBarActivity {
+
+    private boolean recordingRotations;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Initialisation
+        recordingRotations = false;
     }
 
     @Override
@@ -41,12 +48,25 @@ public class MainActivity extends ActionBarActivity {
     /** Called when the user touches the button */
     public void videoRecordClick(View view) {
         TextView t =(TextView) findViewById(R.id.textView);
-        t.setText("Good job!");
+        t.setText("Fuck me!");
     }
 
     /** Called when the user touches the button */
     public void rotationRecordClick(View view) {
-        TextView t =(TextView) findViewById(R.id.textView);
-        t.setText("You suck!");
+        TextView t = (TextView) findViewById(R.id.textView);
+        Button b = (Button) findViewById(R.id.rotation_button);
+
+        // Arret des sensors
+        if(recordingRotations){
+            b.setText("Record rotations");
+            t.setText("Wuba luba dub dub!");
+            recordingRotations=false;
+        }
+        else{
+            b.setText("Stop recording rotations");
+            t.setText("Spin motherfucka!");
+            recordingRotations=true;
+        }
+
     }
 }
