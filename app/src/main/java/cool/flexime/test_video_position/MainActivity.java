@@ -77,8 +77,8 @@ public class MainActivity extends ActionBarActivity {
             b.setText("Stop recording rotations");
             t.setText("Spin motherfucka!");
 
-//            sensorManager.registerListener(gyroListener, sensor,
-//                    SensorManager.SENSOR_DELAY_NORMAL);
+            sensorManager.registerListener(gyroListener, sensor,
+                    SensorManager.SENSOR_DELAY_NORMAL);
 
             recordingRotations=true;
         }
@@ -87,7 +87,7 @@ public class MainActivity extends ActionBarActivity {
             b.setText("Record rotations");
             t.setText("Wuba luba dub dub!");
 
-//            sensorManager.unregisterListener(gyroListener);
+            sensorManager.unregisterListener(gyroListener);
 
             recordingRotations=false;
 
@@ -95,12 +95,12 @@ public class MainActivity extends ActionBarActivity {
 
     }
 
-    public void onResume() {
-        super.onResume();
-        sensorManager.registerListener(gyroListener, sensor,
-                SensorManager.SENSOR_DELAY_NORMAL);
-    }
-
+//    public void onResume() {
+//        super.onResume();
+//        sensorManager.registerListener(gyroListener, sensor,
+//                SensorManager.SENSOR_DELAY_NORMAL);
+//    }
+//
     public void onStop() {
         super.onStop();
         sensorManager.unregisterListener(gyroListener);
@@ -113,9 +113,9 @@ public class MainActivity extends ActionBarActivity {
             float y = event.values[1];
             float z = event.values[2];
 
-            textX.setText("GyroX : " + x + " rad/s");
-            textY.setText("GyroY : " + y + " rad/s");
-            textZ.setText("GyroZ : " + z + " rad/s");
+            textX.setText("GyroX : " + String.format("%.2f",x) + " rad/s");
+            textY.setText("GyroY : " + String.format("%.2f",y) + " rad/s");
+            textZ.setText("GyroZ : " + String.format("%.2f",z) + " rad/s");
         }
     };
 }
