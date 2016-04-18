@@ -1,7 +1,9 @@
 package cool.flexime.test_video_position;
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,6 +16,11 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.content.Context;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.List;
+import java.util.ListIterator;
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -22,6 +29,7 @@ public class MainActivity extends ActionBarActivity {
     TextView textX, textY, textZ;
     SensorManager sensorManager;
     Sensor sensor;
+    File rotationFile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,17 +80,18 @@ public class MainActivity extends ActionBarActivity {
         TextView t = (TextView) findViewById(R.id.textView);
         Button b = (Button) findViewById(R.id.rotation_button);
 
-        // Activation des sensors
+        // Enregistrement des rotations
         if(!recordingRotations){
-            b.setText("Stop recording rotations");
-            t.setText("Spin motherfucka!");
 
+            // Activation des sensors
             sensorManager.registerListener(gyroListener, sensor,
                     SensorManager.SENSOR_DELAY_NORMAL);
-
             recordingRotations=true;
+            b.setText("Stop recording rotations");
+            t.setText("Spin motherfucka!");
         }
-        // Arret des sensors
+
+        // Arret de l'enregistrement
         else{
             b.setText("Record rotations");
             t.setText("Wuba luba dub dub!");
@@ -118,4 +127,26 @@ public class MainActivity extends ActionBarActivity {
             textZ.setText("GyroZ : " + String.format("%.2f",z) + " rad/s");
         }
     };
+
+    /*
+    public boolean saveRotations( String fileName, List<GyroDataCapture> rotationData ){
+
+        FileOutputStream outputStream;
+        try {
+            outputStream = openFileOutput( fileName, Context.MODE_PRIVATE );
+            for (ListIterator<GyroDataCapture> iter = rotationData.listIterator(); iter.hasNext(); ) {
+                GyroDataCapture gdc = iter.next();
+                outputStream.write(gdc.toByte());
+            }
+            outputStream.close();
+            return true;
+
+            Float.
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    */
 }
